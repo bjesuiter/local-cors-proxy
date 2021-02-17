@@ -10,39 +10,48 @@ No 'Access-Control-Allow-Origin' header is present on the requested resource. Or
 
 ## Getting Started
 
-```
+```sh
 npm install -g @bjesuiter/local-cors-proxy
+```
+
+Or install as dev-dependency & add script to your project
+
+```sh
+npm i -D @bjesuiter/local-cors-proxy
+```
+
+```json
+ "scripts": {
+   "proxy": "lcp --targetUrl https://cat-fact.herokuapp.com"
+ }
 ```
 
 **Simple Example**
 
+uses [Cat Facts API](https://alexwohlbruck.github.io/cat-facts/docs/)
+(you need to register to this api first on the website: https://cat-fact.herokuapp.com)
+
 API endpoint that we want to request that has CORS issues:
 
 ```
-https://www.yourdomain.ie/movies/list
+https://cat-fact.herokuapp.com/facts
 ```
 
 Start Proxy:
 
 ```
-lcp --targetUrl https://www.yourdomain.ie
+lcp --targetUrl https://cat-fact.herokuapp.com
 ```
 
 Then in your client code, new API endpoint:
 
 ```
-http://localhost:8010/proxy/movies/list
+http://localhost:8010/proxy/facts
 ```
 
-End result will be a request to `https://www.yourdomain.ie/movies/list` without the CORS issues!
+End result will be a request to `https://cat-fact.herokuapp.com/facts` without the CORS issues!
 
-Alternatively you can install the package locally and add a script to your project:
-
-```json
- "scripts": {
-   "proxy": "lcp --targetUrl https://www.yourdomain.ie"
- }
-```
+## How to try
 
 ## Options
 
