@@ -1,5 +1,5 @@
 #!/usr/bin/env node -r esm
-import lcp from '../lib/index';
+import { startProxy } from '../lib/index';
 import commandLineArgs from 'command-line-args';
 
 const optionDefinitions = [
@@ -27,7 +27,7 @@ try {
 	if (!options.targetUrl && !hasConfigFile) {
 		throw new Error('--targetUrl or --config is required');
 	}
-	lcp.startProxy(options);
+	startProxy(options);
 } catch (error) {
 	console.error(error);
 }
