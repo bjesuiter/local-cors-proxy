@@ -13,6 +13,11 @@ const optionDefinitions = [
 	// the file which will be loaded for multi-target configuration
 	{ name: 'config', alias: 'c', type: String },
 	{ name: 'credentials', type: Boolean, defaultValue: false },
+	{
+          name: "methods",
+          type: Array,
+          defaultValue: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE", "PROPFIND", "MKCOL", "COPY", "MOVE", "LOCK", "UNLOCK", "OPTIONS", "PROPPATCH", "REPORT", "VERSION-CONTROL"],
+        }
 ];
 
 try {
