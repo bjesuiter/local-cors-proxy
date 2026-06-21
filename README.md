@@ -51,7 +51,24 @@ http://localhost:8010/proxy/facts
 
 End result will be a request to `https://cat-fact.herokuapp.com/facts` without the CORS issues!
 
-## How to try
+## How to try yourself
+
+1. User cURL or or use anything which can do http requests, like [Golang Bat](https://github.com/astaxie/bat/releases)
+
+2. Run `curl -I https://cat-fact.herokuapp.com/facts` & find the Header:
+
+   ```
+     Access-Control-Allow-Origin: *
+   ```
+
+   Note: This demo api already has cors enabled, but you can see the change in CORS header information regardless.
+
+3. Start this Proxy: `lcp --targetUrl https://cat-fact.herokuapp.com`
+
+4. Do GET request with your http client of choice:
+   ```
+   curl -XGET -H 'origin: http://localhost:4200' 'http://localhost:8010/proxy/facts'
+   ```
 
 ## Options
 
